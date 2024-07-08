@@ -19,6 +19,7 @@ using namespace std;
 vector<vector<int>> overlappedInterval(vector<vector<int>> &intervals){
     
     vector<vector<int>> ans;
+    int n = intervals.size();
 
     if(intervals.empty()){
         return vector<vector<int>>();
@@ -26,6 +27,9 @@ vector<vector<int>> overlappedInterval(vector<vector<int>> &intervals){
 
     sort(intervals.begin(),intervals.end());
 
+    for(int i=0;i<n;i++){
+        
+    }
     
 }
 

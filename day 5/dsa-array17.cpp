@@ -27,9 +27,35 @@ vector<vector<int>> overlappedInterval(vector<vector<int>> &intervals){
 
     sort(intervals.begin(),intervals.end());
 
+    /*
     for(int i=0;i<n;i++){
-        
+    if(ans.empty() || interval[i][0]>ans.back()[i]){
+    ans.push_back(arr[i]);
     }
+    else{
+    ans.back()[1] = max(ans.back()[1],arr[i][1]);
+    }
+    }
+    return ans
+    */
+
+    for(int i=0;i<n;i++){
+        int start = intervals[i][0];
+        int end = intervals[i][1];
+        if(end <= ans.back()[1]){
+            continue;
+        }
+        for(int j=i+1;j<n;j++){
+            if(intervals[j][0] <= end){
+                end = max(end,intervals[j][1]);
+            }
+            else{
+                break;
+            }
+        }
+        ans.push_back({start,end});
+    }
+    return ans;
     
 }
 

@@ -21,7 +21,7 @@ vector<int> arrange(vector<int> &nums)
     int sum = 3 << 6;
     for(int i=0;i<nums.size();i++){
         for(int j=0;j<nums.size();j++){
-            string x = "nums[i]" << nums[i];
+            int x = nums[i] << nums[i];
 
             int y = nums[j] << nums[j];
             cout<<x<<y<<endl;

@@ -3,44 +3,30 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <string>
 
 using namespace std;
 
-void reverse(vector<int> &nums, int start, int end)
-{
-    while (start < end)
-    {
-        swap(nums[start], nums[end]);
-        start++;
-        end--;
-    }
+bool compare(const int &a, const int &b) {
+    cout<<a<<b<<endl;
+    string ab = to_string(a) + to_string(b);
+    string ba = to_string(b) + to_string(a);
+    return ab > ba;
 }
 
 vector<int> arrange(vector<int> &nums)
 {
-    int sum = 3 << 6;
-    for(int i=0;i<nums.size();i++){
-        for(int j=0;j<nums.size();j++){
-            int x = nums[i] << nums[i];
-
-            int y = nums[j] << nums[j];
-            cout<<x<<y<<endl;
-            if(y < x){
-                swap(nums[i], nums[j]);
-                
-            }
-        }
-    }
-    cout<<sum<<endl;
+    sort(nums.begin(), nums.end(), compare);
     return nums;
 }
 
 int main()
 {
-    vector<int> nums = {3, 30, 34, 5, 9};
-   vector<int> result = arrange(nums);
-   for(int i=0;i<nums.size();i++){
-    cout<<result[i]<<" ";
-   }
+    vector<int> nums = {54, 546, 548, 60};
+    vector<int> result = arrange(nums);
+    for(int i = 0; i < result.size(); i++){
+        cout << result[i];
+    }
+    cout << endl;
     return 0;
 }

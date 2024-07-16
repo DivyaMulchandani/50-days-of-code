@@ -14,7 +14,7 @@ int main(){
     int left =0;
     for(int i=0;i<s.size();i++){
         while(ss.find(s[i]) != ss.end()){
-            ss.erase(left);
+            ss.erase(s[left]);
             left++;
         }
         

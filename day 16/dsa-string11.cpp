@@ -32,9 +32,33 @@ string longestPalindrome(string s)
     string temp;
     for (int i = 0; i < s.size(); i++)
     {
-        temp = s.substr(left, right);
-        if (isPalindrome(temp))
+        // odd length
+        left = i;
+        right = i;
+        while (left >= 0 && right < s.size() && s[left] == s[right])
         {
+            if (isPalindrome(s.substr(left, right - left + 1)))
+            {
+                temp = s.substr(left, right - left + 1);
+            }
+            left--;
+            right++;
         }
+
+        // even leght
+        left = i;
+        right = i + 1;
+        while (left >= 0 && right < s.size() && s[left] == s[right])
+        {
+
+            if (isPalindrome(s.substr(left, right - left + 1)))
+            {
+                temp = s.substr(left, right - left + 1);
+            }
+            left--;
+            right++;
+        }
+
+        return temp;
     }
 }

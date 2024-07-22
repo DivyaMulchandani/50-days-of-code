@@ -1,64 +1,56 @@
 // longest palindromic substring
-
 #include <iostream>
 #include <string>
 
-using namespace std;
-
-bool isPalindrome(string s)
+class Solution
 {
-    string ss;
-    for (char c : s)
+public:
+    std::string longestPalindrome(std::string s)
     {
-        if (isalnum(c))
-        {
-            ss += tolower(c);
-        }
-    }
-    for (int i = 0; i < ss.size(); i++)
-    {
-        if (ss[i] != ss[(ss.size() - i) - 1])
-        {
-            return false;
-        }
-    }
-    return true;
-}
+        int n = s.size();
+        if (n == 0)
+            return "";
 
-string longestPalindrome(string s)
+        int maxLength = 1;
+        int start = 0;
+
+        for (int i = 0; i < n; i++)
+        {
+            // Odd length palindromes
+            int left = i, right = i;
+            while (left >= 0 && right < n && s[left] == s[right])
+            {
+                if (right - left + 1 > maxLength)
+                {
+                    start = left;
+                    maxLength = right - left + 1;
+                }
+                left--;
+                right++;
+            }
+
+            // Even length palindromes
+            left = i, right = i + 1;
+            while (left >= 0 && right < n && s[left] == s[right])
+            {
+                if (right - left + 1 > maxLength)
+                {
+                    start = left;
+                    maxLength = right - left + 1;
+                }
+                left--;
+                right++;
+            }
+        }
+
+        return s.substr(start, maxLength);
+    }
+};
+
+int main()
 {
-    int left = 0;
-    int right = 0;
-    string temp;
-    for (int i = 0; i < s.size(); i++)
-    {
-        // odd length
-        left = i;
-        right = i;
-        while (left >= 0 && right < s.size() && s[left] == s[right])
-        {
-            if (isPalindrome(s.substr(left, right - left + 1)))
-            {
-                temp = s.substr(left, right - left + 1);
-            }
-            left--;
-            right++;
-        }
-
-        // even leght
-        left = i;
-        right = i + 1;
-        while (left >= 0 && right < s.size() && s[left] == s[right])
-        {
-
-            if (isPalindrome(s.substr(left, right - left + 1)))
-            {
-                temp = s.substr(left, right - left + 1);
-            }
-            left--;
-            right++;
-        }
-
-        return temp;
-    }
+    Solution solution;
+    std::string s = "babad";
+    std::cout << "Longest Palindromic Substring: " << solution.longestPalindrome(s) << std::endl;
+    return 0;
 }

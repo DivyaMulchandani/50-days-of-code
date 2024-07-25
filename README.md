@@ -19,4 +19,7 @@ Day 14 DSA-strings
 Day 15 DSA-strings
 Day 16 DSA-strings
 Day 17 DSA-strings
-.
+Day 18 DSA-strings
+Day 19 DSA-strings
+Day 20 DSA-strings
+Day 21 DSA-2D-arrays

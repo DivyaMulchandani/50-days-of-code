@@ -12,4 +12,4 @@
 11
 02
 */
-msdv
+msdvDCFG

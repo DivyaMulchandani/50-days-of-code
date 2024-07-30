@@ -16,6 +16,7 @@ void printDiagonalOrder(const std::vector<std::vector<int>> &matrix)
         int col = 0;
         while (row >= 0 && col < cols)
         {
+            // std::cout << row << col << " ";
             std::cout << matrix[row][col] << " ";
             --row;
             ++col;

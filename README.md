@@ -30,4 +30,3 @@ Day 25 DSA-2D-arrays(L)
 Day 26 BreastCancer-Prediction
 Day 27 BreastCancer-Prediction
 Day 28 DSA-2D-arrays(L)
-rfdc
